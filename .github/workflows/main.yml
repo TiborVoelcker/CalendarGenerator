@@ -22,22 +22,22 @@ jobs:
       - name: Build
         run: |
           pyinstaller -y '
-            --collect-submodules="babel" '
-            --add-data="README;." '
-            --add-data="*.ttf;." '
-            --add-data="settings.ini;." '
-            --name="Calendar Generator" '
-            --icon="calendar.ico" '
+            --collect-submodules="babel" `
+            --add-data="README;." `
+            --add-data="*.ttf;." `
+            --add-data="settings.ini;." `
+            --name="Calendar Generator" `
+            --icon="calendar.ico" `
             main.py
       - name: Build one-file
         run: |
-          pyinstaller -y --onefile '
-            --collect-submodules="babel" '
-            --add-data="README;." '
-            --add-data="*.ttf;." '
-            --add-data="settings.ini;." '
-            --name="Calendar Generator" '
-            --icon="calendar.ico" '
+          pyinstaller -y --onefile `
+            --collect-submodules="babel" `
+            --add-data="README;." `
+            --add-data="*.ttf;." `
+            --add-data="settings.ini;." `
+            --name="Calendar Generator" `
+            --icon="calendar.ico" `
             main.py
       - name: Upload build
         uses: actions/upload-artifact@v3
