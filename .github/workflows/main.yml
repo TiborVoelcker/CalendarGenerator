@@ -39,19 +39,22 @@ jobs:
             --name="Calendar Generator" `
             --icon="calendar.ico" `
             main.py
-      - name: Upload build
+      - name: Upload dist
         uses: actions/upload-artifact@v3
         with:
-          name: build
+          name: dist
           path: dist/
   release:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download build
+      - name: Download dist
         uses: actions/download-artifact@v3
         with:
-          name: build
-      - name: Display structure
-        run: ls -R
-        
+          name: dist
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            Calendar generator.exe
+            Calendar generator/
