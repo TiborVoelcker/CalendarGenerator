@@ -1,5 +1,8 @@
 name: Build and Release
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -22,21 +25,21 @@ jobs:
       - name: Build
         run: |
           pyinstaller -y `
-            --collect-submodules="babel" `
+            --hidden-import="babel.numbers" `
             --add-data="README;." `
+            --add-data="LICENSE;." `
             --add-data="*.ttf;." `
             --add-data="settings.ini;." `
-            --name="Calendar Generator" `
+            --name="CalendarGenerator" `
             --icon="calendar.ico" `
             main.py
       - name: Build one-file
         run: |
           pyinstaller -y --onefile `
-            --collect-submodules="babel" `
-            --add-data="README;." `
+            --hidden-import="babel.numbers" `
             --add-data="*.ttf;." `
             --add-data="settings.ini;." `
-            --name="Calendar Generator" `
+            --name="CalendarGenerator" `
             --icon="calendar.ico" `
             main.py
       - name: Upload dist
@@ -57,5 +60,5 @@ jobs:
         with:
           tag_name: latest
           files: |
-            Calendar generator.exe
-            Calendar generator/
+            CalendarGenerator.exe
+            CalendarGenerator/
