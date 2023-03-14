@@ -21,7 +21,7 @@ jobs:
           pip install pyinstaller
       - name: Build
         run: |
-          pyinstaller -y '
+          pyinstaller -y `
             --collect-submodules="babel" `
             --add-data="README;." `
             --add-data="*.ttf;." `
