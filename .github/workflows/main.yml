@@ -26,7 +26,7 @@ jobs:
         run: |
           pyinstaller -y `
             --hidden-import="babel.numbers" `
-            --add-data="README;." `
+            --add-data="README.md;." `
             --add-data="LICENSE;." `
             --add-data="*.ttf;." `
             --add-data="settings.ini;." `
