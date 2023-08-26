@@ -91,7 +91,6 @@ def main(year: int, output: Path):
             anchor="rm",
         )
 
-
         # draw days
         drawn_holidays = []
         x = BORDER + DAYS_WIDTH / 2
@@ -126,7 +125,6 @@ def main(year: int, output: Path):
             )
             x += DAYS_WIDTH
             current_date += timedelta(days=1)
-
 
         logging.info("Drawn holidays: %s", ", ".join(drawn_holidays))
 
@@ -209,8 +207,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     if any((output_dir / f"{selected_year}_{month}.png").exists() for month in range(1, 13)):
-        ok = input("""Some files will be overwritten! Continue?
-            Enter (Y/N) [Y]: """) or "Y"
+        ok = input("Some files will be overwritten! Continue?\nEnter (Y/N) [Y]: ") or "Y"
         if ok == "Y":
             pass
         elif ok == "N":
