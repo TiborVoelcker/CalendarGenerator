@@ -1,6 +1,6 @@
 Babel==2.10.3
 black==22.8.0
 holidays==0.16
-Pillow==9.2.0
+Pillow==9.3.0
 pyinstaller==5.4.1
 pylint==2.15.3
