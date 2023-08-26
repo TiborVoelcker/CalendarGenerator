@@ -1,3 +1,5 @@
+__version__ = "1.0"
+
 import logging
 import os
 import sys
@@ -184,6 +186,9 @@ if __name__ == "__main__":
 
     LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
     logging.basicConfig(level=LOG_LEVEL, format="%(levelname)s: %(message)s")
+
+    print(f"Calendar generator (Version: {__version__})")
+    logging.debug("Python version: %s", sys.version)
 
     selected_year = date.today().year + 1
     selected_year = input(f"Enter year [{selected_year}]: ") or selected_year
