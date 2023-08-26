@@ -52,9 +52,9 @@ jobs:
         with:
           name: dist
       - name: Get Version
-        run: VERSION=`grep "__version__ = " main.py | sed -e 's/^.*= "//' -e 's/"//'`
+        run: echo VERSION=`grep "__version__ = " main.py | sed -e 's/^.*= "//' -e 's/"//'` >> $GITHUB_ENV
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: $VERSION
+          tag_name: ${{ env.VERSION }}
           files: CalendarGenerator.zip
